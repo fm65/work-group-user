@@ -58,6 +58,12 @@ $ python manage.py test
 $ python manage.py create_admin
 ```
 
+## Generate fake users for testing
+
+```bash
+$ python manage.py generate_fake
+```
+
 #### Author
 - Fidel
 - Yassamine
