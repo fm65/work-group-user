@@ -18,6 +18,12 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install all dep
 $ pip install -r requirements.txt
 ```
 
+Set environments.
+
+```bash
+$ source .env
+```
+
 ## Run
 
 ### initialize the database (create a migration repository)

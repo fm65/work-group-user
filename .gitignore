@@ -5,7 +5,7 @@
 *.pyo
 env/
 venv/
-.venv/
+#.venv/
 env*
 dist/
 build/

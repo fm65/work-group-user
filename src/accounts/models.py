@@ -6,7 +6,9 @@ from src import bcrypt, db
 
 
 class Group(db.Model):
+    
     __tablename__ = 'groups'
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), unique=True)
     users = db.relationship('User', backref='group', lazy='dynamic')
