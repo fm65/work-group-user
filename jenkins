@@ -42,8 +42,6 @@ agent any
             steps {
                 sh 'rm -fr migrations'
                 sh 'flask db init'
-                sh 'flask db migrate'
-                sh 'flask db upgrade'
             }
         }
 
