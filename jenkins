@@ -2,9 +2,10 @@ pipeline{
 agent any
 
     stages {
-        stage('Inter git project') {
+        stage('Checkout') {
             steps {
-                    git branch: 'master', url: 'https://github.com/fm65/work-group-user.git'
+                    git branch: 'master', credentialsId: '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', url: 'git@github.com:fm65/work-group-user.git'
+   }
             }
         }
 
