@@ -44,8 +44,26 @@ agent any
                 sh 'flask db init'
             }
         }
+        
+        stage('Test forms') {
+            steps {
+                sh 'python3 manage.py test_forms'
+            }
+        }
+        
+        stage('Test models') {
+            steps {
+                sh 'python3 manage.py test_models'
+            }
+        }
+        
+        stage('Test routes') {
+            steps {
+                sh 'python3 manage.py test_routes'
+            }
+        }
 
-        stage('All test') {
+        stage('All tests') {
             steps {
                 sh 'python3 manage.py test'
             }
