@@ -8,16 +8,16 @@ agent any
             }
         }
 
-        stage('Create a virtualenv') {
+        stage('Create virtualenv') {
             steps {
                 sh 'python3 -m venv env'
             }
         }
         
-        stage('activate the virtualenv') {
+        stage('activate virtualenv') {
             steps {
                 sh 'chmod +x env/bin/activate'
-                sh 'source env/bin/activate'
+                sh '. env/bin/activate'
             }
         }
         
