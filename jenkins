@@ -30,7 +30,7 @@ agent any
         stage('Set environments') {
             steps {
                 sh 'chmod +x environment.sh'
-                sh './environment.sh'
+                sh '. environment.sh'
             }
         }
         
