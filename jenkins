@@ -33,6 +33,14 @@ agent any
                 sh './environment.sh'
             }
         }
+        
+        stage('Initialize database') {
+            steps {
+                sh 'flask db init'
+                sh 'flask db migrate'
+                sh 'flask db upgrade'
+            }
+        }
 
         stage('All test') {
             steps {
