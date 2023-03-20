@@ -25,7 +25,8 @@ $ pip install -r requirements.txt
 Set environments.
 
 ```bash
-$ source .env
+$ chmod +x environment.sh
+$ ./environment.sh
 
 for Windows 
 
