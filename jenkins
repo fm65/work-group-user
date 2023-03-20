@@ -8,9 +8,17 @@ agent any
             }
         }
 
-        stage('Install requirements') {
+        stage('Create a virtualenv and activate it') {
+            steps {
+                sh 'python3 -m venv env'
+                sh 'source env/bin/activate'
+            }
+        }
+        
+        stage('Install requirements and set environments') {
             steps {
                 sh 'pip install -r requirements.txt'
+                sh 'source .env'
             }
         }
 
@@ -20,56 +28,9 @@ agent any
             }
         }
 
-        stage('test_forms') {
+        stage('All test') {
             steps {
-                sh 'python -m unittest discover -v tests/test_forms'
+                sh 'python manage.py test'
             }
         }
-        stage('base_models') {
-            steps {
-                sh 'python -m unittest discover -v tests/base_models'
-            }
-        }
-
-        stage('test_routes') {
-            steps {
-                sh 'python -m unittest discover -v tests/test_routes'
-            }
-        }
-
-
-
-        stage('Code analysis') {
-            steps {
-                sh 'pylint --output-format=html app.py > pylint_report.html'
-            }
-        }
-
-
-        // Il fqut identifier le main.py 
-        // stage('Build') {
-        //     steps {
-        //         sh 'python main.py sdist bdist_wheel'
-        //     }
-        // }
-
-        stage('Publish reports') {
-            steps {
-                publishHTML(target: [
-                    allowMissing: false,
-                    alwaysLinkToLastBuild: false,
-                    keepAll: true,
-                    reportDir: '.',
-                    reportFiles: 'pylint_report.html',
-                    reportName: 'PyLint Report'
-                ])
-            }
-        }
-
-        stage('Archive artifacts') {
-            steps {
-                archiveArtifacts artifacts: '*/.{whl, tar.gz}', fingerprint: true
-            }
-        }
-    }
 }
