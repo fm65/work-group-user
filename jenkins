@@ -5,7 +5,6 @@ agent any
         stage('Checkout') {
             steps {
                     git branch: 'master', credentialsId: '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', url: 'git@github.com:fm65/work-group-user.git'
-   }
             }
         }
 
