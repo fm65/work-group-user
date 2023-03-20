@@ -4,7 +4,7 @@ agent any
     stages {
         stage('Checkout') {
             steps {
-                    git branch: 'main', url: 'git@github.com:fm65/work-group-user.git'
+                    git branch: 'main', url: 'https://github.com/fm65/work-group-user.git'
             }
         }
 
