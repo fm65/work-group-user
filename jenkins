@@ -10,7 +10,6 @@ agent any
 
         stage('Create a virtualenv and activate it') {
             steps {
-                sh 'echo $PWD'
                 sh 'python3 -m venv env'
                 sh 'source env/bin/activate'
             }
