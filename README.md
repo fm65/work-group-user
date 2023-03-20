@@ -10,6 +10,10 @@ Create a virtualenv and activate it:
 ```bash
 $ python3 -m venv env
 $ source env/bin/activate
+
+for Windows 
+$env/Scripts/activate.bat
+
 ```
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install all depen.
@@ -22,6 +26,16 @@ Set environments.
 
 ```bash
 $ source .env
+
+for Windows 
+
+set SECRET_KEY=fdkjshfhjsdfdskfdsfdcbsjdkfdsdf
+set DEBUG=True
+set APP_SETTINGS=config.DevelopmentConfig
+set DATABASE_URL=sqlite:///db.sqlite
+set FLASK_APP=src
+set FLASK_DEBUG=1
+
 ```
 
 ## Run
