@@ -4,7 +4,7 @@ agent any
     stages {
         stage('Inter git project') {
             steps {
-                    /usr/bin/git branch: 'master', url: 'https://github.com/fm65/work-group-user.git'
+                    git branch: 'master', url: 'https://github.com/fm65/work-group-user.git'
             }
         }
 
