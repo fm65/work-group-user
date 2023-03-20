@@ -8,19 +8,29 @@ agent any
             }
         }
 
-        stage('Create a virtualenv and activate it') {
+        stage('Create a virtualenv') {
             steps {
                 sh 'python3 -m venv env'
+            }
+        }
+        
+        stage('activate the virtualenv') {
+            steps {
                 sh 'chmod +x env/bin/activate'
                 sh './env/bin/activate'
             }
         }
         
-        stage('Install requirements and set environments') {
+        stage('Install requirements') {
             steps {
                 sh 'pip install -r requirements.txt'
-                sh 'chmod +x .env'
-                sh './env'
+            }
+        }
+        
+        stage('Set environments') {
+            steps {
+                sh 'chmod +x environment.sh'
+                sh './environment.sh'
             }
         }
 
