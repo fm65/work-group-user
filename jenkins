@@ -1,6 +1,17 @@
 pipeline{
 agent any
 
+    //Setting the environment variables
+    environment {
+        SECRET_KEY=fdkjshfhjsdfdskfdsfdcbsjdkfdsdf
+        DEBUG=True
+        APP_SETTINGS=config.DevelopmentConfig
+        DATABASE_URL=sqlite:///db.sqlite
+        FLASK_APP=src
+        FLASK_DEBUG=1
+    }
+
+
     stages {
         stage('Checkout') {
             steps {
@@ -24,14 +35,6 @@ agent any
         stage('Install requirements') {
             steps {
                 sh 'pip install -r requirements.txt'
-            }
-        }
-        
-        stage('Set environments') {
-            steps {
-                sh 'chmod +x environment.sh'
-                sh '. ./environment.sh'
-                sh 'echo $SECRET_KEY'
             }
         }
         
