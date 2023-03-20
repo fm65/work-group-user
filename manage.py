@@ -12,7 +12,45 @@ cli = FlaskGroup(app)
 @cli.command("test")
 def test():
     """Runs the unit tests without coverage."""
-    tests = unittest.TestLoader().discover("tests")
+    print("Runs the unit tests without coverage.\n")
+    tests = unittest.TestLoader().discover("tests/test_forms")
+    result = unittest.TextTestRunner(verbosity=2).run(tests)
+
+    tests = unittest.TestLoader().discover("tests/test_models")
+    result = unittest.TextTestRunner(verbosity=2).run(tests)
+
+    tests = unittest.TestLoader().discover("tests/test_routes")
+    result = unittest.TextTestRunner(verbosity=2).run(tests)
+    
+    if result.wasSuccessful():
+        return 0
+    else:
+        return 1
+
+@cli.command("test_forms")
+def test():
+    """Runs the unit test_forms without coverage."""
+    tests = unittest.TestLoader().discover("tests/test_forms")
+    result = unittest.TextTestRunner(verbosity=2).run(tests)
+    if result.wasSuccessful():
+        return 0
+    else:
+        return 1
+
+@cli.command("test_models")
+def test():
+    """Runs the unit test_models without coverage."""
+    tests = unittest.TestLoader().discover("tests/test_models")
+    result = unittest.TextTestRunner(verbosity=2).run(tests)
+    if result.wasSuccessful():
+        return 0
+    else:
+        return 1
+
+@cli.command("test_routes")
+def test():
+    """Runs the unit test_routes without coverage."""
+    tests = unittest.TestLoader().discover("tests/test_routes")
     result = unittest.TextTestRunner(verbosity=2).run(tests)
     if result.wasSuccessful():
         return 0
