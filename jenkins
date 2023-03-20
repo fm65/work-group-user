@@ -22,12 +22,6 @@ agent any
             }
         }
 
-        stage('base_test') {
-            steps {
-                sh 'python -m unittest discover -v tests/base_test'
-            }
-        }
-
         stage('All test') {
             steps {
                 sh 'python manage.py test'
